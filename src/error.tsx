@@ -1,5 +1,6 @@
 import { useRouteError } from "react-router-dom";
 import { Link } from "react-router-dom";
+import HomeButton from "./components/Buttons/HomeButton/HomeButton";
 
 export default function ErrorPage() {
   const error = useRouteError();
@@ -9,7 +10,7 @@ export default function ErrorPage() {
     <div id="error-page">
         <h1>Oops!</h1>
         <p>Sorry, an unexpected error has occurred.</p>
-        <Link to='/'>Back to home</Link>
+        <HomeButton/>
     </div>
   );
 }
