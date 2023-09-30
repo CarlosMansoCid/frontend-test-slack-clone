@@ -1,13 +1,15 @@
 import { styled } from "styled-components"
 
 interface IAvatar {
-    username:string
+    username:string,
+    isOnline: boolean,
+    id: string
 }
-const Avatar = ({username}:IAvatar) => {
+const Avatar = ({username, isOnline, id}:IAvatar) => {
   return (
-    <AvatarSquare>
+    <AvatarSquare id={id}>
         {username.slice(0,2).toUpperCase()}
-        <OnLineIndicator/>
+        {isOnline && <OnLineIndicator id={id}/>}
     </AvatarSquare>
   )
 }
@@ -24,6 +26,12 @@ const AvatarSquare = styled.div`
     justify-content: center;
     border-radius: var(--radius-m);
     position: relative;
+
+    &#small{
+      width: 1.5rem;
+      height: 1.5rem;
+      font-size: .8rem;
+    }
 `
 const OnLineIndicator = styled.div`
     width: .7rem;
@@ -33,4 +41,10 @@ const OnLineIndicator = styled.div`
     position: absolute;
     bottom: -3px;
     right: -3px;
+
+    &#small{
+      width: .5rem;
+      height: .5rem;
+      font-size: .8rem;
+    }
 `

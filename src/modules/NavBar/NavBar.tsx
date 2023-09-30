@@ -14,7 +14,7 @@ const NavBar = () => {
                 <SearchBar/>
             </CenterContainer>
             <SideContainer>
-                <Avatar username="Carlos"/>
+                <Avatar username="Carlos" isOnline={true} id=""/>
             </SideContainer>
         </Content>
     </NavBarContainer>

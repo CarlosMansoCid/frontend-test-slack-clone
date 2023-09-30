@@ -3,6 +3,7 @@ import SidebarLayout from "../../layouts/sidebarLayout/Sidebar.layout"
 import SidebarsLinks from "../SidebarLinks/SidebarsLinks"
 import { sidebarLinksMock } from "../../lib/mockedData/SidebarLinksMock"
 import Chanels from "../Chanels/Chanels"
+import DirectMessages from "../DirectMessages/DirectMessages"
 
 const SideBar = () => {
   return (
@@ -10,6 +11,7 @@ const SideBar = () => {
         <SpaceHeader spacename='MansoSpace'/>
         <SidebarsLinks links={sidebarLinksMock}/>
         <Chanels/>
+        <DirectMessages/>
     </SidebarLayout>
   )
 }
