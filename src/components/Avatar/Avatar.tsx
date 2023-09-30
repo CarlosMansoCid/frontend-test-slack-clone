@@ -1,4 +1,5 @@
 import { styled } from "styled-components"
+import { generateColor } from "../../utils/generateColor"
 
 interface IAvatar {
     username:string,
@@ -6,8 +7,12 @@ interface IAvatar {
     id: string
 }
 const Avatar = ({username, isOnline, id}:IAvatar) => {
+
+
+  const color = generateColor()
+
   return (
-    <AvatarSquare id={id}>
+    <AvatarSquare id={id} style={{backgroundColor:color}}>
         {username.slice(0,2).toUpperCase()}
         {isOnline && <OnLineIndicator id={id}/>}
     </AvatarSquare>
@@ -18,7 +23,6 @@ export default Avatar
 const AvatarSquare = styled.div`
     width: 2rem;
     height: 2rem;
-    background-color: #501003;
     color: var(--color-white);
     display: flex;
     flex-direction: column;
