@@ -1,4 +1,4 @@
-import { Container } from "./authHeader.style"
+import { styled } from "styled-components";
 import Subtitle from "../../components/Subtitle/Subtitle"
 import Title from '../../components/Title/Title'
 
@@ -17,3 +17,10 @@ const AuthHeader = ({title, subtitle}:ILoginHeader) => {
 }
 
 export default AuthHeader
+
+export const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+`

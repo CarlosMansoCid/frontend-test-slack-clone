@@ -17,6 +17,8 @@ code {
   --color-main: #3F0E40;
   --color-main-hover: #230524;
   --color-main-ligth: #4D2A51;
+  --color-main-ligth-opacity: #5d3d5e;
+  --color-sidebar: #3f0e40;
   --color-font-grey-dark: #1d1c1d;
   --color-font-grey-ligth: #454245;
   --color-hover_text_color_opacity_50: rgba(255,255,255,50);
