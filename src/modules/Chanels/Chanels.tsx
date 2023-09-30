@@ -3,12 +3,26 @@ import Acordeon from "../../components/Acordeon/Acordeon"
 
 const Chanels = () => {
   return (
-    <div>
-        <Acordeon>
-            asd
+    <ChanelsContainer>
+      <Content>
+        <Acordeon title="Canales">
+          cana
         </Acordeon>
-    </div>
+      </Content>
+    </ChanelsContainer>
   )
 }
 
 export default Chanels
+
+const ChanelsContainer = styled.div`
+  width: 100%;
+  border-bottom: solid 1px var(--color-white);
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+
+`
+const Content = styled.div`
+  width: 90%;
+  margin: 0 auto;
+`
