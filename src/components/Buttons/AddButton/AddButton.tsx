@@ -24,6 +24,7 @@ const Button = styled.div`
     flex-direction: row;
     align-items: center;
     cursor: pointer;
+    position: relative
 
 `
 const Icon = styled.div`

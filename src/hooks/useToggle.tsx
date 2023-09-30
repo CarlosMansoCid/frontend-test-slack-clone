@@ -6,8 +6,11 @@ const useToggle = () => {
     const toggle = () =>{
         setValue(!value)
     }
+    const setNewValue = (newValue:boolean) =>{
+      setValue(newValue)
+    }
 
-  return {value, toggle}
+  return {value, toggle, setNewValue}
 }
 
 export default useToggle

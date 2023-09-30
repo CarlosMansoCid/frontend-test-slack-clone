@@ -2,10 +2,13 @@ import { styled } from "styled-components"
 import Acordeon from "../../components/Acordeon/Acordeon"
 import ChanelTag from "../../components/ChanelTag/ChanelTag"
 import { chanelsMock } from "../../lib/mockedData/ChanelsMock"
-import AddButton from "../../components/Buttons/AddButton/AddButton"
+import AddNewChanelButton from "../../components/AddNewChanelButton/AddNewChanelButton"
+
 
 const Chanels = () => {
+
   const chanels = chanelsMock
+
   return (
     <ChanelsContainer>
       <Content>
@@ -19,7 +22,7 @@ const Chanels = () => {
               })
               :<>No hay canales</>
           }
-          <AddButton title='Agregar canal' action={()=>console.log('agregar canal')}/>
+          <AddNewChanelButton/>
         </Acordeon>
       </Content>
     </ChanelsContainer>
