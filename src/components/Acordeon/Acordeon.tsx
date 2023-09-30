@@ -13,6 +13,9 @@ const Acordeon = ({children, title}:IAcordeon) => {
             <Button><RiArrowDropRightFill style={{margin:'0'}}/></Button>
             <Title>{title}</Title>
         </ToggleButton>
+        <ChildrenContainer>
+            {children}
+        </ChildrenContainer>
     </AcordeonContainer>
   )
 }
@@ -56,4 +59,7 @@ const Title = styled.p`
     &:hover{
         background-color: var(--color-main-ligth-opacity);
     }
+`
+const ChildrenContainer = styled.div`
+    padding: .5rem;
 `
