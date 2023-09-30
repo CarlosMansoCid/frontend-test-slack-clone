@@ -25,7 +25,7 @@ const SignUpForm = () => {
                         definitions={{required: true}}
                         title="contrasena"/>
         <AuthButton text="Crear cuenta"/>
-        <LinkWithText to='/' text="ya tiene una cuenta? " linkText="Iniciar sesion"/>
+        <LinkWithText to='/login' text="ya tiene una cuenta? " linkText="Iniciar sesion"/>
     </FormLayout>
   )
 }

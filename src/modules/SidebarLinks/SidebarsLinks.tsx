@@ -13,7 +13,7 @@ const SidebarsLinks = ({links}:ISidebarsLinks) => {
                 !!links &&
                 links.map(link => {
                     return(
-                        <SidebarLinksCard link={link}/>
+                        <SidebarLinksCard key={links.indexOf(link)} link={link}/>
                     )
                 })
             }
