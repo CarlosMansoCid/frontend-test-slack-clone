@@ -1,5 +1,5 @@
 import { styled } from "styled-components"
-import { generateColor } from "../../utils/generateColor"
+import useGenerateHexadecimalColor from "../../hooks/useGenerateHexadecimalColor"
 
 interface IAvatar {
     username:string,
@@ -9,7 +9,7 @@ interface IAvatar {
 const Avatar = ({username, isOnline, id}:IAvatar) => {
 
 
-  const color = generateColor()
+  const color = useGenerateHexadecimalColor()
 
   return (
     <AvatarSquare id={id} style={{backgroundColor:color}}>
