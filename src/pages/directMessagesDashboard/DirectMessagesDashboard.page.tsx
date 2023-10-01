@@ -1,15 +1,20 @@
+
+import { useParams } from "react-router-dom"
 import DashboardBodyContainerLayout from "../../layouts/dashboardBodyContainerLayout/DashboardBodyContainer.layout"
 import DashboardLayout from "../../layouts/dashboardLayout/Dashboard.layout"
 
 
-const Dashboard = () => {
+const DirectMessagesDashboard = () => {
+
+  const {id} = useParams()
+  
   return (
     <DashboardLayout>
       <DashboardBodyContainerLayout>
-        body content
+        direct messagess
       </DashboardBodyContainerLayout>
     </DashboardLayout>
   )
 }
 
-export default Dashboard
+export default DirectMessagesDashboard

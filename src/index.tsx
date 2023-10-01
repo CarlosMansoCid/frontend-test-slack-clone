@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
+const DirectMessagesDashboard = lazy(()=>import('./pages/directMessagesDashboard/DirectMessagesDashboard.page'));
 const SignUpPage = lazy(()=>import('./pages/signup/SignUp.page'));
 const LoginPage = lazy(()=>import('./pages/LoginPage/LoginPage.page'));
 const Dashboard = lazy(()=>import('./pages/dashboard/Dashboard.page'));
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard/>,
+  },
+  {
+    path: "/dashboard/dm/:id",
+    element: <DirectMessagesDashboard/>,
   },
   {
     path: '*',
