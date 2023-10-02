@@ -29,12 +29,7 @@ const LoginForm = () => {
                         definitions={{required: true}}
                         title="contrasena"
                         label={true}/>
-        {
-          onProcess ?
-          <>loading</>
-          :
-          <AuthButton text="Iniciar sesion"/>
-        }
+          <AuthButton text="Iniciar sesion" onProcess={onProcess}/>
         <LinkWithText to='/signup' text="no tiene una cuenta? " linkText="Crear cuenta"/>
     </FormLayout>
   )

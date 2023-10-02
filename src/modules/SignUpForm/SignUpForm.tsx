@@ -13,18 +13,21 @@ const SignUpForm = () => {
                         placeholder="nombre de usuario"
                         name="username"
                         definitions={{required: true}}
-                        title="nombre de usuario"/> 
+                        title="nombre de usuario"
+                        label/> 
         <GenericInput   type="email"
                         placeholder="email"
                         name="email"
                         definitions={{required: true}}
-                        title="formato: xxx@xxx.xxx"/>
+                        title="formato: xxx@xxx.xxx"
+                        label/>
         <GenericInput   type="password"
                         placeholder="contrasena"
                         name="password"
                         definitions={{required: true}}
-                        title="contrasena"/>
-        <AuthButton text="Crear cuenta"/>
+                        title="contrasena"
+                        label/>
+        <AuthButton text="Crear cuenta" onProcess={false}/>
         <LinkWithText to='/login' text="ya tiene una cuenta? " linkText="Iniciar sesion"/>
     </FormLayout>
   )

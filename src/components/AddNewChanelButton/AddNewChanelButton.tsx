@@ -7,6 +7,7 @@ import FormLayout from "../../layouts/formLayout/FormLayout"
 import GenericInput from "../genericInput/GenericInput"
 import { useChanel } from "../../hooks/useChanel"
 import { FieldValues } from "react-hook-form"
+import Loader from "../Loader/Loader"
 
 const AddNewChanelButton = () => {
     const {value, toggle, setNewValue} = useToggle()
@@ -34,7 +35,7 @@ const AddNewChanelButton = () => {
                     <AddChanelButtonContainer>
                         {
                             onProcess ? 
-                            <>loading...</>
+                            <Loader/>
                             :
                             <AddChanelButton value="Agregar" type='submit'/>
 
@@ -55,7 +56,7 @@ const AddChanelContainer = styled.div`
     min-height: 50vh;
     background-color: var(--color-white);
     border-radius: var(--radius-m);
-    /* position: relative; */
+    position: relative;
     padding: 1rem;
     margin: 0 auto;
 

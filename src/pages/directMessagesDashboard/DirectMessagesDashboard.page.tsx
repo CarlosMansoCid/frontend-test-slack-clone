@@ -7,6 +7,8 @@ import { TMessageData } from "../../domain/types/messageDataType"
 import MessageBox from "../../components/MessageBox/MessageBox"
 import { getItemFromTheLocalStorage } from "../../utils/getItemFromTheLocalStorage"
 import { TCoworkerMock } from "../../lib/mockedData/CoworkersMock"
+import Loader from "../../components/Loader/Loader"
+import { styled } from "styled-components"
 
 
 const DirectMessagesDashboard = () => {
@@ -25,7 +27,7 @@ const DirectMessagesDashboard = () => {
     <DashboardLayout>
         <DirectMessagesContainerLayout>
           { 
-            onProcess ? <>cargando</>
+            onProcess ? <Loader/>
             :
             messages.length > 0 ? 
             messages.map(message => {
@@ -33,7 +35,7 @@ const DirectMessagesDashboard = () => {
                                  remitent={message.from === 'self' ? user : (data as TMessageData).from}/>
             })
             :
-            <>No hay mensajes</>
+            <EmptyMessageTag>No hay mensajes</EmptyMessageTag>
           }
         </DirectMessagesContainerLayout>
     </DashboardLayout>
@@ -41,3 +43,13 @@ const DirectMessagesDashboard = () => {
 }
 
 export default DirectMessagesDashboard
+
+const EmptyMessageTag = styled.div`
+  width: 80%;
+  height: auto;
+  margin: 2rem auto;
+  border: solid 2px var(--color-main);
+  border-radius: var(--radius-m);
+  padding: 1rem;
+  text-align: center;
+`

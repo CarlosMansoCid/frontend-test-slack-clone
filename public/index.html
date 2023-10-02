@@ -16,7 +16,25 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root">
-      <div>loading ...</div>
+      <style>
+        .container{
+          width: 100vw;
+          height: 100vh;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: column;
+        }
+        .image{
+          width: 10rem;
+          height: 10rem;
+        }
+      </style>
+      <div>
+        <div class="container">
+          <img alt="brand" class="image" src="%PUBLIC_URL%/img/slack_logo.svg"/>
+        </div>
+      </div>
     </div>
   </body>
 </html>
