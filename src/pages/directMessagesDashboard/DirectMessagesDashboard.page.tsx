@@ -6,9 +6,9 @@ import useGetMessagesFromId from "../../hooks/useGetMessagesFromId"
 import { TMessageData } from "../../domain/types/messageDataType"
 import MessageBox from "../../components/MessageBox/MessageBox"
 import { getItemFromTheLocalStorage } from "../../utils/getItemFromTheLocalStorage"
-import { TCoworkerMock } from "../../lib/mockedData/CoworkersMock"
 import Loader from "../../components/Loader/Loader"
 import { styled } from "styled-components"
+import {Helmet} from 'react-helmet'
 
 
 const DirectMessagesDashboard = () => {
@@ -25,6 +25,10 @@ const DirectMessagesDashboard = () => {
 
   return (
     <DashboardLayout>
+        <Helmet>
+          <title>Slack | Dashboard</title>
+          <meta name="description" content="Bienvenidos a slack"/>
+        </Helmet>
         <DirectMessagesContainerLayout>
           { 
             onProcess ? <Loader/>
