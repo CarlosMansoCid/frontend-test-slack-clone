@@ -7,6 +7,7 @@ import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 // const DirectMessagesDashboard = lazy(()=>import('./pages/directMessagesDashboard/DirectMessagesDashboard.page'));
 import DirectMessagesDashboard from './pages/directMessagesDashboard/DirectMessagesDashboard.page';
 import PageLoader from './components/PageLoader/PageLoader';
+import Protector from './components/Protector/Protector';
 const SignUpPage = lazy(()=>import('./pages/signup/SignUp.page'));
 const LoginPage = lazy(()=>import('./pages/LoginPage/LoginPage.page'));
 const Dashboard = lazy(()=>import('./pages/dashboard/Dashboard.page'));
@@ -27,11 +28,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard/>,
+    element: <Protector><Dashboard/></Protector>,
   },
   {
     path: "/dashboard/dm/:id",
-    element: <DirectMessagesDashboard/>,
+    element: <Protector><DirectMessagesDashboard/></Protector>,
   },
   {
     path: '*',

@@ -9,7 +9,7 @@ const Dashboard = () => {
         <title>Slack | Dashboard</title>
         <meta name="description" content="Bienvenidos a slack"/>
       </Helmet>
-        body content
+        Bienvenido a MansoSpace, prueba mirar los mensajes directos a Proceso de seleccion ;), o explora la pagina a tu gusto.
     </DashboardLayout>
   )
 }
