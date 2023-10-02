@@ -3,11 +3,14 @@ import Acordeon from "../../components/Acordeon/Acordeon"
 import ChanelTag from "../../components/ChanelTag/ChanelTag"
 import { chanelsMock } from "../../lib/mockedData/ChanelsMock"
 import AddNewChanelButton from "../../components/AddNewChanelButton/AddNewChanelButton"
+import { useChanelstStore } from "../../domain/store/useChanelsStore"
+import { TChanel } from "../../domain/types/chanelType"
 
 
 const Chanels = () => {
 
-  const chanels = chanelsMock
+  // const chanels = chanelsMock
+  const chanels:TChanel[] = useChanelstStore((state:any) => state.chanels)
 
   return (
     <ChanelsContainer>

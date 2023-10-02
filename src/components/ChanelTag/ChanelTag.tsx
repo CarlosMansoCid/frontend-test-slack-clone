@@ -1,18 +1,21 @@
 import { styled } from "styled-components"
 import {FaTimes} from 'react-icons/fa'
+import { useChanel } from "../../hooks/useChanel"
 
 interface IChanelTag {
     title: string
 }
+
 const ChanelTag = ({title}:IChanelTag) => {
 
+  const {removeAChanel} = useChanel()
   
   return (
     <Tag>
       <Title>
       # {title}
       </Title>
-      <DeleteButton>
+      <DeleteButton onClick={()=>removeAChanel(title)}>
         <FaTimes/>
       </DeleteButton>
     </Tag>

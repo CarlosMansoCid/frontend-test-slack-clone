@@ -8,13 +8,16 @@ const MessagesHeader = () => {
 
   return (
     <Header>
-        <Container>
-            <Avatar username={remitent.username}
-                    isOnline={remitent.isOnline}
-                    id={remitent._id}
-                    backgroundColor={remitent.backgroundColor}/>
-            <Username>{remitent.username}</Username>
-        </Container>
+        {
+            !!remitent &&
+            <Container>
+                <Avatar username={remitent.username}
+                        isOnline={remitent.isOnline}
+                        id={remitent._id}
+                        backgroundColor={remitent.backgroundColor}/>
+                <Username>{remitent.username}</Username>
+            </Container>
+        }
     </Header>
   )
 }
