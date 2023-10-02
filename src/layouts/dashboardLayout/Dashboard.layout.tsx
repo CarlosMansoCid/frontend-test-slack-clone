@@ -2,14 +2,18 @@ import styled from 'styled-components'
 import NavBar from '../../modules/NavBar/NavBar'
 import SideBar from '../../modules/SideBar/SideBar'
 import { ReactNode } from 'react'
+import { getItemFromTheLocalStorage } from '../../utils/getItemFromTheLocalStorage'
 
 interface IDashboarLayout {
     children: ReactNode
 }
 const DashboardLayout = ({children}:IDashboarLayout) => {
+
+    const user = JSON.parse(getItemFromTheLocalStorage('user')) 
+
     return (
         <DashboardContainer>
-        <NavBar/>
+        <NavBar user={user}/>
         <BodyContainer>
             <SidebarContainer>
                 <SideBar/>

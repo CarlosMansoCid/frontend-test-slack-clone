@@ -14,7 +14,10 @@ const CoworkerCard = ({coworker}:ICoworkerCard) => {
 
   return (
     <CoworkerCardContainer onClick={()=>navigate(`/dashboard/dm/${coworker._id}`)}>
-        <Avatar username={coworker.username} isOnline={coworker.isOnline} id="small"/>
+        <Avatar username={coworker.username} 
+                isOnline={coworker.isOnline} 
+                id="small" 
+                backgroundColor={coworker.backgroundColor}/>
         <P>{coworker.username}</P>
     </CoworkerCardContainer> 
   )

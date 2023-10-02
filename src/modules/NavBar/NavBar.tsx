@@ -2,8 +2,13 @@ import { styled } from "styled-components"
 import Avatar from "../../components/Avatar/Avatar"
 import SearchBar from "../../components/SearchBar/SearchBar"
 import History from "../../components/History/History"
+import { TCoworkerMock } from "../../lib/mockedData/CoworkersMock"
  
-const NavBar = () => {
+interface INavBar {
+    user: TCoworkerMock
+}
+
+const NavBar = ({user}:INavBar) => {
   return (
     <NavBarContainer>
         <Content>
@@ -14,7 +19,10 @@ const NavBar = () => {
                 <SearchBar/>
             </CenterContainer>
             <SideContainer>
-                <Avatar username="Carlos" isOnline={true} id=""/>
+                <Avatar username={user.username} 
+                        isOnline={user.isOnline} 
+                        id={user._id.toString()} 
+                        backgroundColor={user.backgroundColor}/>
             </SideContainer>
         </Content>
     </NavBarContainer>

@@ -4,16 +4,18 @@ import { TCoworkerMock } from '../../lib/mockedData/CoworkersMock'
 
 interface IMessageBox {
     message: string,
-    self: boolean,
-    remitent: TCoworkerMock
+    remitent: TCoworkerMock,
 }
 
-const MessageBox = ({message,remitent, self}:IMessageBox) => {
+const MessageBox = ({message,remitent}:IMessageBox) => {
+
+  
   return (
-    <MessageBoxContainer id={self ? 'self' : ''}>
+    <MessageBoxContainer>
         <Avatar username={remitent.username} 
                 isOnline={remitent.isOnline} 
-                id={remitent._id.toString()}/>
+                id={remitent._id.toString()}
+                backgroundColor={remitent.backgroundColor}/>
         <TextMessageBox>
             <Header>
                 <strong>{remitent.username}</strong>

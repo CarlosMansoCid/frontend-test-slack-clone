@@ -5,4 +5,5 @@ export const userMock:TCoworkerMock = {
     username: 'Carlos Manso Cid',
     profileImage: 'https://',
     isOnline: true,
+    backgroundColor: '#999745'
 } 

@@ -5,6 +5,8 @@ import DirectMessagesContainerLayout from "../../layouts/directMessagesContainer
 import useGetMessagesFromId from "../../hooks/useGetMessagesFromId"
 import { TMessageData } from "../../domain/types/messageDataType"
 import MessageBox from "../../components/MessageBox/MessageBox"
+import { getItemFromTheLocalStorage } from "../../utils/getItemFromTheLocalStorage"
+import { TCoworkerMock } from "../../lib/mockedData/CoworkersMock"
 
 
 const DirectMessagesDashboard = () => {
@@ -13,7 +15,11 @@ const DirectMessagesDashboard = () => {
 
   const {onProcess, data} = useGetMessagesFromId({id})
   
-  const messages  = !!data ? (data as TMessageData).messages: []
+  const messages  = Object.keys(data).length > 0 ? (data as TMessageData).messages : []
+
+  const userInLocalStorage = getItemFromTheLocalStorage('user')
+  const user = userInLocalStorage && JSON.parse(userInLocalStorage)
+  
 
   return (
     <DashboardLayout>
@@ -24,8 +30,7 @@ const DirectMessagesDashboard = () => {
             Object.keys(messages).length > 0 ? 
             messages.map(message => {
               return <MessageBox message={message.message} 
-                                 self={message.from === 'self'}
-                                 remitent={(data as TMessageData).from}/>
+                                 remitent={message.from === 'self' ? user : (data as TMessageData).from}/>
             })
             :
             <>No hay mensajes</>

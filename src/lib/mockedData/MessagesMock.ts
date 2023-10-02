@@ -6,7 +6,8 @@ export const messagesMock:TMessageData[] = [
             _id: 534523234234,
             username: 'Proceso de seleccion',
             profileImage: 'https://',
-            isOnline: true
+            isOnline: true,
+            backgroundColor: "#465123"
         },
         messages:[
             {
