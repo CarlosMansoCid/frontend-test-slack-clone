@@ -6,17 +6,19 @@ interface IGenericInput {
     placeholder: string, 
     name: string, 
     definitions: RegisterOptions<FieldValues, string> | undefined, 
-    title: string
+    title: string,
+    label: boolean
 }
 
-const GenericInput = ({type,placeholder, name, definitions, title}:IGenericInput) => {
+const GenericInput = ({type, placeholder, name, definitions, title, label=true}:IGenericInput) => {
+
     const {register, formState} = useFormContext()
     
     const {errors} = formState
   
     return (
         <InputContainer>
-            <Label>{placeholder}</Label>
+            {label && <Label>{placeholder}</Label>}
             <Input type={type} 
                    placeholder={placeholder} 
                    {...register(name,definitions)}

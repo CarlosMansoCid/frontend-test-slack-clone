@@ -1,18 +1,18 @@
 
 import { useParams } from "react-router-dom"
-import DashboardBodyContainerLayout from "../../layouts/dashboardBodyContainerLayout/DashboardBodyContainer.layout"
 import DashboardLayout from "../../layouts/dashboardLayout/Dashboard.layout"
+import DirectMessagesContainerLayout from "../../layouts/directMessagesContainerLayout/DirectMessagesContainerLayout.layout"
 
 
 const DirectMessagesDashboard = () => {
 
   const {id} = useParams()
-  
+
   return (
     <DashboardLayout>
-      <DashboardBodyContainerLayout>
-        direct messagess
-      </DashboardBodyContainerLayout>
+        <DirectMessagesContainerLayout>
+          direct messagess
+        </DirectMessagesContainerLayout>
     </DashboardLayout>
   )
 }

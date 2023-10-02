@@ -29,6 +29,7 @@ const NavBarContainer = styled.div`
     background-color: var(--color-main);
     position: sticky;
     top: 0;
+    z-index: 999;
 
 `
 const SideContainer = styled.div`
