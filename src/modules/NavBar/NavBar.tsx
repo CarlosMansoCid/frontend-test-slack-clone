@@ -3,6 +3,7 @@ import Avatar from "../../components/Avatar/Avatar"
 import SearchBar from "../../components/SearchBar/SearchBar"
 import History from "../../components/History/History"
 import { TCoworkerMock } from "../../lib/mockedData/CoworkersMock"
+import BurgerButton from "../../components/Buttons/BurgerButton/BurgerButton"
  
 interface INavBar {
     user: TCoworkerMock
@@ -12,7 +13,7 @@ const NavBar = ({user}:INavBar) => {
   return (
     <NavBarContainer>
         <Content>
-            <SideContainer>
+            <SideContainer id='history'>
                 <History/>
             </SideContainer>
             <CenterContainer>
@@ -23,6 +24,7 @@ const NavBar = ({user}:INavBar) => {
                         isOnline={user.isOnline} 
                         id={user._id.toString()} 
                         backgroundColor={user.backgroundColor}/>
+                <BurgerButton/>
             </SideContainer>
         </Content>
     </NavBarContainer>
@@ -46,6 +48,13 @@ const SideContainer = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
+
+    @media (width < 500px){
+        &#history{
+            width: 10%;
+        }
+        width: 30%;
+    }
 `
 const CenterContainer = styled.div`
     width: 60%;
