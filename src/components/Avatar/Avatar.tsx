@@ -4,15 +4,16 @@ import useGenerateHexadecimalColor from "../../hooks/useGenerateHexadecimalColor
 interface IAvatar {
     username:string,
     isOnline: boolean,
-    id: string
+    id: string,
+    backgroundColor: string
 }
-const Avatar = ({username, isOnline, id}:IAvatar) => {
+const Avatar = ({username, isOnline, id, backgroundColor}:IAvatar) => {
 
 
   const color = useGenerateHexadecimalColor()
 
   return (
-    <AvatarSquare id={id} style={{backgroundColor:color}}>
+    <AvatarSquare id={id} style={{backgroundColor:backgroundColor}}>
         {username.slice(0,2).toUpperCase()}
         {isOnline && <OnLineIndicator id={id}/>}
     </AvatarSquare>
@@ -21,6 +22,8 @@ const Avatar = ({username, isOnline, id}:IAvatar) => {
 
 export default Avatar
 const AvatarSquare = styled.div`
+    min-width: 2rem;
+    min-height: 2rem;
     width: 2rem;
     height: 2rem;
     color: var(--color-white);
@@ -32,6 +35,8 @@ const AvatarSquare = styled.div`
     position: relative;
 
     &#small{
+      min-width: 1.5rem;
+      min-height: 1.5rem;
       width: 1.5rem;
       height: 1.5rem;
       font-size: .8rem;

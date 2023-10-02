@@ -15,5 +15,7 @@ const SidebarLayout = ({children}:ISidebarLayout) => {
 export default SidebarLayout 
 const SidebarContainer = styled.aside`
     background-color: var(--color-sidebar);
-    width: 18%;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 `

@@ -2,19 +2,26 @@ import styled from 'styled-components'
 import NavBar from '../../modules/NavBar/NavBar'
 import SideBar from '../../modules/SideBar/SideBar'
 import { ReactNode } from 'react'
+import { getItemFromTheLocalStorage } from '../../utils/getItemFromTheLocalStorage'
 
 interface IDashboarLayout {
     children: ReactNode
 }
 const DashboardLayout = ({children}:IDashboarLayout) => {
+
+    const userInLocalStorage = getItemFromTheLocalStorage('user')
+    const user = userInLocalStorage && JSON.parse(userInLocalStorage)
+
     return (
         <DashboardContainer>
-        <NavBar/>
+        <NavBar user={user}/>
         <BodyContainer>
-            <SideBar/>
-            <BodyContent>
+            <SidebarContainer>
+                <SideBar/>
+            </SidebarContainer>
+            <BodyContentContainer>
                 {children}
-            </BodyContent>
+            </BodyContentContainer>
         </BodyContainer>
     </DashboardContainer>
   )
@@ -33,8 +40,15 @@ const BodyContainer = styled.div`
     flex-direction: row;
     position: relative;
 `
-const BodyContent = styled.div`
-    width: 85%;
-    
+const SidebarContainer = styled.div`
+    width: 20%;
+    min-height: 100vh;
+`
+const BodyContentContainer = styled.div`
+    width: 80%;
+    position: fixed;
+    top: 3rem;
+    left: 20%;
+    min-height: 100%;
 `
 export default DashboardLayout
