@@ -1,15 +1,35 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {createBrowserRouter, RouterProvider} from 'react-router-dom'
-import NotFoundPage from './not-found';
+import {createBrowserRouter, RouterProvider} from 'react-router-dom';
+const DirectMessagesDashboard = lazy(()=>import('./pages/directMessagesDashboard/DirectMessagesDashboard.page'));
+const SignUpPage = lazy(()=>import('./pages/signup/SignUp.page'));
+const LoginPage = lazy(()=>import('./pages/LoginPage/LoginPage.page'));
+const Dashboard = lazy(()=>import('./pages/dashboard/Dashboard.page'));
+const NotFoundPage = lazy(()=>import('./not-found'));
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
+  },
+  {
+    path: "/login",
+    element: <LoginPage/>,
+  },
+  {
+    path: "/signup",
+    element: <SignUpPage/>,
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard/>,
+  },
+  {
+    path: "/dashboard/dm/:id",
+    element: <DirectMessagesDashboard/>,
   },
   {
     path: '*',
@@ -22,7 +42,9 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Suspense fallback={<>'loading...'</>}>
+      <RouterProvider router={router} />
+    </Suspense>
   </React.StrictMode>
 );
 

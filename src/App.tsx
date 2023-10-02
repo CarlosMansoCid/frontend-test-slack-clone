@@ -1,9 +1,10 @@
 import './App.css';
 
+
 function App() {
   return (
-    <main>
-      react
+    <main className='main'>
+      Prueba tecnica
     </main>
   );
 }
