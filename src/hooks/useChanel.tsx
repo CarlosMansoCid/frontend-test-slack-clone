@@ -13,19 +13,26 @@ export const useChanel = () => {
 
     
     const addNewChanel = (chanelName:string) =>{
-
         setSuccess(false)
         setOnProcess(true)
 
-        setTimeout(()=>{
-            addChanel({title: `${chanelName}`})
-            setSuccess(true)
-            setOnProcess(false)
-        },1000)
+        const addChanelEndpoint = new Promise((resolve, reject) =>{
+            setTimeout(()=>{
+                resolve(
+                    addChanel({title: `${chanelName}`})  
+                    )
+                },2000)
+            })
+            
+            
+            addChanelEndpoint
+                            .then(()=>setSuccess(true))
+                            .finally(()=>setOnProcess(false))
+           
+            
     }
     const removeAChanel = (title:string) =>{
         const currentChanels = chanels.filter((chanel:TChanel)=>chanel.title !== title)
-        console.log(currentChanels)
         removeChanel(currentChanels)
     }
   return {onProcess, success, addNewChanel, removeAChanel}

@@ -24,6 +24,7 @@ export default DirectMessagesContainerLayout
 const DirectMessagesLayout = styled.div`
     width: 100%;
     min-height: 100vh;
+    
 
 `
 const MessagesContainer = styled.div`
@@ -31,4 +32,15 @@ const MessagesContainer = styled.div`
     height:68vh;
     overflow-y: scroll;
     overflow-x: hidden;
+    -ms-overflow-style: none;  
+    scrollbar-width: none; 
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    @media (width < 800px){
+        width: 90%;
+        margin: 0 auto;
+    }
 `

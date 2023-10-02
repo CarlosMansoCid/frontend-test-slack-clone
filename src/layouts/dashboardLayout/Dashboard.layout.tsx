@@ -43,6 +43,11 @@ const BodyContainer = styled.div`
 const SidebarContainer = styled.div`
     width: 20%;
     min-height: 100vh;
+
+    @media (width < 800px){
+        display: none;
+        width: 0;
+    }
 `
 const BodyContentContainer = styled.div`
     width: 80%;
@@ -50,5 +55,13 @@ const BodyContentContainer = styled.div`
     top: 3rem;
     left: 20%;
     min-height: 100%;
+    /* position: relative; */
+
+    @media (width < 800px){
+        width: 100%;
+        position: fixed;
+        top: 3rem;
+        left: 0;
+    }
 `
 export default DashboardLayout

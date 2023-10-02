@@ -14,7 +14,6 @@ const AddNewChanelButton = () => {
 
     const handleAddChanel = (data:FieldValues) =>{
         addNewChanel(data.chanel)
-        setNewValue(false)
     }
 
     
