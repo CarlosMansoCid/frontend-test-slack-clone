@@ -3,15 +3,28 @@ import useToggle from "../../hooks/useToggle"
 import AddButton from "../Buttons/AddButton/AddButton"
 import Modal from "../Modal/Modal"
 import { FaTimes } from "react-icons/fa"
+import FormLayout from "../../layouts/formLayout/FormLayout"
+import GenericInput from "../genericInput/GenericInput"
 
 const AddNewChanelButton = () => {
     const {value, toggle, setNewValue} = useToggle()
-    console.log(value)
   return (
     <>
         <AddButton title='Agregar canal' action={()=>toggle()}/>
         <Modal show={value}>
             <AddChanelContainer>
+                <FormLayout onSubmitForm={(data)=>console.log(data)}>
+                    <GenericInput definitions={{required:true}}
+                                  label
+                                  name="chanel"
+                                  placeholder="Ingrese el nombre del canal"
+                                  title="Ingrese el nombre del canal"
+                                  type="text"
+                                  />
+                    <AddChanelButtonContainer>
+                        <AddChanelButton value="Agregar canal"/>
+                    </AddChanelButtonContainer>
+                </FormLayout>
                 <CloseButton onClick={()=>toggle()}><FaTimes/></CloseButton>
             </AddChanelContainer>
         </Modal>
@@ -27,6 +40,7 @@ const AddChanelContainer = styled.div`
     background-color: var(--color-white);
     border-radius: var(--radius-m);
     position: relative;
+    padding: 1rem;
     
 `
 const CloseButton = styled.div`
@@ -42,5 +56,26 @@ const CloseButton = styled.div`
     background-color: #8f8f8fe2;
     top: -10px;
     right: -10px;
+    cursor: pointer;
     color: var(--color-white);
+`
+const AddChanelButton = styled.input`
+    width: 30%;
+    color: var(--color-white);
+    background-color: var(--color-green);
+    border: none;
+    border-radius: var(--radius-m);
+    padding: .5rem 1rem;
+    margin-right: .5rem;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+     
+`
+const AddChanelButtonContainer = styled.div`
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: right;
 `
