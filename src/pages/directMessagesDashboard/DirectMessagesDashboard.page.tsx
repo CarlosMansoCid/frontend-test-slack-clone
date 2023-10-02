@@ -14,20 +14,20 @@ const DirectMessagesDashboard = () => {
   const {id} = useParams()
 
   const {onProcess, data} = useGetMessagesFromId({id})
-  
-  const messages  = Object.keys(data).length > 0 ? (data as TMessageData).messages : []
 
+  const messages = Object.keys(data).length > 0 ? (data as TMessageData).messages : []
   const userInLocalStorage = getItemFromTheLocalStorage('user')
+
   const user = userInLocalStorage && JSON.parse(userInLocalStorage)
   
 
   return (
     <DashboardLayout>
         <DirectMessagesContainerLayout>
-          {
+          { 
             onProcess ? <>cargando</>
             :
-            Object.keys(messages).length > 0 ? 
+            messages.length > 0 ? 
             messages.map(message => {
               return <MessageBox message={message.message} 
                                  remitent={message.from === 'self' ? user : (data as TMessageData).from}/>

@@ -9,7 +9,8 @@ interface IDashboarLayout {
 }
 const DashboardLayout = ({children}:IDashboarLayout) => {
 
-    const user = JSON.parse(getItemFromTheLocalStorage('user')) 
+    const userInLocalStorage = getItemFromTheLocalStorage('user')
+    const user = userInLocalStorage && JSON.parse(userInLocalStorage)
 
     return (
         <DashboardContainer>

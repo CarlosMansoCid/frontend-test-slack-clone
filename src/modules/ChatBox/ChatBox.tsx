@@ -34,11 +34,12 @@ const ChatBoxContainer = styled.div`
     right: auto;
 `
 const Box = styled.div`
-    width: 96%;
+    width: 98%;
     height: 100%;
     margin: 0 auto;
     border: solid 2px #b8b7b7;
     border-radius: var(--radius-m);
+    background-color: var(--color-white);
 
 `
 const SendMessageButton = styled.input`

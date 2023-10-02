@@ -2,9 +2,10 @@ import { ReactNode } from 'react'
 import styled from 'styled-components'
 import ChatBox from '../../modules/ChatBox/ChatBox'
 import MessagesHeader from '../../components/MessagesHeader/MessagesHeader'
+import { TCoworkerMock } from '../../lib/mockedData/CoworkersMock'
 
 interface IDirectMessagesLayout {
-    children: ReactNode
+    children: ReactNode,
 }
 const DirectMessagesContainerLayout = ({children}:IDirectMessagesLayout) => {
   return (
@@ -27,6 +28,7 @@ const DirectMessagesLayout = styled.div`
 `
 const MessagesContainer = styled.div`
     width: 100%;
-    height: 100vh;
+    height:68vh;
     overflow-y: scroll;
+    overflow-x: hidden;
 `

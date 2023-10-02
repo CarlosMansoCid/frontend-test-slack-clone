@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom"
 import Avatar from "../Avatar/Avatar"
 import { styled } from "styled-components"
 import { TCoworkerMock } from "../../lib/mockedData/CoworkersMock" 
+import { useRemitentStore } from "../../domain/store/useRemitentStore"
 
 
 interface ICoworkerCard {
@@ -11,9 +12,15 @@ interface ICoworkerCard {
 const CoworkerCard = ({coworker}:ICoworkerCard) => {
 
     const navigate = useNavigate()
+    const setRemitent = useRemitentStore((state:any) => state.setRemitent)
+
+    const handleClick = () =>{
+        setRemitent({remitent:coworker})
+        navigate(`/dashboard/dm/${coworker._id}`)
+    }
 
   return (
-    <CoworkerCardContainer onClick={()=>navigate(`/dashboard/dm/${coworker._id}`)}>
+    <CoworkerCardContainer onClick={()=>handleClick()}>
         <Avatar username={coworker.username} 
                 isOnline={coworker.isOnline} 
                 id="small" 

@@ -36,6 +36,7 @@ const MessageBoxContainer = styled.div`
 const TextMessageBox = styled.div`
     width: 90%;
     margin-left: .5rem;
+
 `
 const Header = styled.div`
     display:flex;
