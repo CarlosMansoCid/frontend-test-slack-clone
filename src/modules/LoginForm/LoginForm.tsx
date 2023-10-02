@@ -3,23 +3,38 @@ import FormLayout from "../../layouts/formLayout/FormLayout"
 import GenericInput from "../../components/genericInput/GenericInput"
 import AuthButton from "../../components/Buttons/AuthButton/AuthButton"
 import LinkWithText from "../../components/LinkWithText/LinkWithText"
+import { useLogin } from "../../hooks/useLogin"
+import { useNavigate } from "react-router-dom"
 
 const LoginForm = () => {
 
-    const onSubmit = (data:FieldValues) => console.log(data) 
+    const {onProcess, loged, loginUseCase} = useLogin()
+    const navigate = useNavigate()
+
+    const onSubmit = (data:FieldValues) => loginUseCase({email:data.email, password:data.password})
+
+    if(loged) navigate('/dashboard')
+    
   return (
     <FormLayout onSubmitForm={onSubmit}>
         <GenericInput   type="email"
                         placeholder="email"
                         name="email"
                         definitions={{required: true}}
-                        title="email"/>
+                        title="email"
+                        label={true}/>
         <GenericInput   type="password"
                         placeholder="contrasena"
                         name="password"
                         definitions={{required: true}}
-                        title="contrasena"/>
-        <AuthButton text="Iniciar sesion"/>
+                        title="contrasena"
+                        label={true}/>
+        {
+          onProcess ?
+          <>loading</>
+          :
+          <AuthButton text="Iniciar sesion"/>
+        }
         <LinkWithText to='/signup' text="no tiene una cuenta? " linkText="Crear cuenta"/>
     </FormLayout>
   )

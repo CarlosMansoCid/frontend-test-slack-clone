@@ -1,9 +1,3 @@
-import { TCoworkerMock } from "../lib/mockedData/CoworkersMock"
-
-interface ISetItemInTheLocalStorage {
-    key: string
-    item: any
-}
-export const setItemInTheLocalStorage = ({key, item}:ISetItemInTheLocalStorage) =>{
+export const setItemInTheLocalStorage = (key: string,item: any) =>{
     localStorage.setItem(key, item )
 }
