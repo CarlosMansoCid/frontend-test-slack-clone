@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useChanelstStore } from "../domain/store/useChanelsStore"
+import { TChanel } from "../domain/types/chanelType"
 
 export const useChanel = () => {
 
@@ -7,7 +8,10 @@ export const useChanel = () => {
     const [success, setSuccess] = useState(false)
 
     const addChanel = useChanelstStore((state:any )=> state.addChanel)
+    const removeChanel = useChanelstStore((state:any )=> state.removeChanel)
+    const chanels = useChanelstStore((state:any )=> state.chanels)
 
+    
     const addNewChanel = (chanelName:string) =>{
 
         setSuccess(false)
@@ -19,6 +23,10 @@ export const useChanel = () => {
             setOnProcess(false)
         },1000)
     }
-
-  return {onProcess, success, addNewChanel}
+    const removeAChanel = (title:string) =>{
+        const currentChanels = chanels.filter((chanel:TChanel)=>chanel.title !== title)
+        console.log(currentChanels)
+        removeChanel(currentChanels)
+    }
+  return {onProcess, success, addNewChanel, removeAChanel}
 }
