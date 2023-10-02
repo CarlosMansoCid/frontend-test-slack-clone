@@ -5,15 +5,26 @@ import Modal from "../Modal/Modal"
 import { FaTimes } from "react-icons/fa"
 import FormLayout from "../../layouts/formLayout/FormLayout"
 import GenericInput from "../genericInput/GenericInput"
+import { useChanel } from "../../hooks/useChanel"
+import { FieldValues } from "react-hook-form"
 
 const AddNewChanelButton = () => {
     const {value, toggle, setNewValue} = useToggle()
+    const {onProcess, success, addNewChanel} = useChanel()
+
+    const handleAddChanel = (data:FieldValues) =>{
+        addNewChanel(data.chanel)
+        if(success) setNewValue(false)
+    }
+
+    
+
   return (
     <>
         <AddButton title='Agregar canal' action={()=>toggle()}/>
         <Modal show={value}>
             <AddChanelContainer>
-                <FormLayout onSubmitForm={(data)=>console.log(data)}>
+                <FormLayout onSubmitForm={(data)=>handleAddChanel(data)}>
                     <GenericInput definitions={{required:true}}
                                   label
                                   name="chanel"
@@ -22,7 +33,13 @@ const AddNewChanelButton = () => {
                                   type="text"
                                   />
                     <AddChanelButtonContainer>
-                        <AddChanelButton value="Agregar canal"/>
+                        {
+                            onProcess ? 
+                            <>loading...</>
+                            :
+                            <AddChanelButton value="Agregar canal" type='submit'/>
+
+                        }
                     </AddChanelButtonContainer>
                 </FormLayout>
                 <CloseButton onClick={()=>toggle()}><FaTimes/></CloseButton>
