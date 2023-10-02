@@ -14,7 +14,6 @@ const AddNewChanelButton = () => {
 
     const handleAddChanel = (data:FieldValues) =>{
         addNewChanel(data.chanel)
-        setNewValue(false)
     }
 
     
@@ -37,7 +36,7 @@ const AddNewChanelButton = () => {
                             onProcess ? 
                             <>loading...</>
                             :
-                            <AddChanelButton value="Agregar canal" type='submit'/>
+                            <AddChanelButton value="Agregar" type='submit'/>
 
                         }
                     </AddChanelButtonContainer>
@@ -56,8 +55,16 @@ const AddChanelContainer = styled.div`
     min-height: 50vh;
     background-color: var(--color-white);
     border-radius: var(--radius-m);
-    position: relative;
+    /* position: relative; */
     padding: 1rem;
+    margin: 0 auto;
+
+    @media (width < 700px){
+        width: 70%;
+    }
+    @media (width < 500px){
+        width: 85%;
+    }
     
 `
 const CloseButton = styled.div`

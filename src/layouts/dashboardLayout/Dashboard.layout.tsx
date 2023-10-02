@@ -3,6 +3,7 @@ import NavBar from '../../modules/NavBar/NavBar'
 import SideBar from '../../modules/SideBar/SideBar'
 import { ReactNode } from 'react'
 import { getItemFromTheLocalStorage } from '../../utils/getItemFromTheLocalStorage'
+import { useShowSidebarStore } from '../../domain/store/useShowSidebarStore'
 
 interface IDashboarLayout {
     children: ReactNode
@@ -11,12 +12,13 @@ const DashboardLayout = ({children}:IDashboarLayout) => {
 
     const userInLocalStorage = getItemFromTheLocalStorage('user')
     const user = userInLocalStorage && JSON.parse(userInLocalStorage)
+    const show = useShowSidebarStore((state:any) => state.show)
 
     return (
         <DashboardContainer>
         <NavBar user={user}/>
         <BodyContainer>
-            <SidebarContainer>
+            <SidebarContainer id={show ? 'show' : 'hidden'}>
                 <SideBar/>
             </SidebarContainer>
             <BodyContentContainer>
@@ -43,6 +45,16 @@ const BodyContainer = styled.div`
 const SidebarContainer = styled.div`
     width: 20%;
     min-height: 100vh;
+
+    @media (width < 800px){
+        display: none;
+        width: 0;
+
+        &#show{
+            display: flex;
+            width: 50%;
+        }
+    }
 `
 const BodyContentContainer = styled.div`
     width: 80%;
@@ -50,5 +62,13 @@ const BodyContentContainer = styled.div`
     top: 3rem;
     left: 20%;
     min-height: 100%;
+    /* position: relative; */
+
+    @media (width < 800px){
+        width: 100%;
+        position: fixed;
+        top: 3rem;
+        left: 0;
+    }
 `
 export default DashboardLayout

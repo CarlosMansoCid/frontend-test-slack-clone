@@ -28,14 +28,18 @@ const ModalContainer = styled.dialog`
     height: 100vh;
     z-index: 999;
     background-color: #22222294;
+    padding: 0;
 
 `
 const Container = styled.div`
   background-color: transparent;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: fixed;
+    top: 0;
+    left: 0;
 `
