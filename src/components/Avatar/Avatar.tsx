@@ -21,6 +21,8 @@ const Avatar = ({username, isOnline, id}:IAvatar) => {
 
 export default Avatar
 const AvatarSquare = styled.div`
+    min-width: 2rem;
+    min-height: 2rem;
     width: 2rem;
     height: 2rem;
     color: var(--color-white);
@@ -32,6 +34,8 @@ const AvatarSquare = styled.div`
     position: relative;
 
     &#small{
+      min-width: 1.5rem;
+      min-height: 1.5rem;
       width: 1.5rem;
       height: 1.5rem;
       font-size: .8rem;

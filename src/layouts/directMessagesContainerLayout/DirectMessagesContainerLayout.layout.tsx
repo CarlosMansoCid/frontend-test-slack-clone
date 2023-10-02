@@ -1,6 +1,7 @@
 import { ReactNode } from 'react'
 import styled from 'styled-components'
 import ChatBox from '../../modules/ChatBox/ChatBox'
+import MessagesHeader from '../../components/MessagesHeader/MessagesHeader'
 
 interface IDirectMessagesLayout {
     children: ReactNode
@@ -8,7 +9,7 @@ interface IDirectMessagesLayout {
 const DirectMessagesContainerLayout = ({children}:IDirectMessagesLayout) => {
   return (
     <DirectMessagesLayout>
-        <div>Carlos</div>
+        <MessagesHeader/>
         <MessagesContainer>
             {children}
         </MessagesContainer>

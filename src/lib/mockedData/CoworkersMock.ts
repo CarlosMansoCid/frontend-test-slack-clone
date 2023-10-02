@@ -7,7 +7,7 @@ export type TCoworkerMock = {
 export const coworkerMock = [
     {
         _id: 534523234234,
-        username: 'Carlos Manso Cid',
+        username: 'Proceso de seleccion',
         profileImage: 'https://',
         isOnline: true
     },
