@@ -5,8 +5,8 @@ beforeEach(()=>{
     render(<Subtitle subtitle='subtitle'/>)
 })
 
-describe('<Title/>',()=>{
-    it('Must render subtitle component and display a custom title',()=>{
+describe('<Subtitle/>',()=>{
+    it('Must render subtitle component and display a custom subtitle',()=>{
         const subtitleComponent = screen.getByText('subtitle')
         expect(subtitleComponent).toBeInTheDocument()
     })
