@@ -4,7 +4,7 @@ import { styled } from "styled-components"
 
 interface IOAuth {
     text: string,
-    icon: ReactNode
+    icon: ReactNode,
 }
 const OAuthButton = ({text, icon}:IOAuth) => {
 

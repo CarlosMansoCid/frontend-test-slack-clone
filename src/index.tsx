@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
 // const DirectMessagesDashboard = lazy(()=>import('./pages/directMessagesDashboard/DirectMessagesDashboard.page'));
 import DirectMessagesDashboard from './pages/directMessagesDashboard/DirectMessagesDashboard.page';
+import PageLoader from './components/PageLoader/PageLoader';
 const SignUpPage = lazy(()=>import('./pages/signup/SignUp.page'));
 const LoginPage = lazy(()=>import('./pages/LoginPage/LoginPage.page'));
 const Dashboard = lazy(()=>import('./pages/dashboard/Dashboard.page'));
@@ -43,7 +44,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Suspense fallback={<>'loading...'</>}>
+    <Suspense fallback={<PageLoader/>}>
       <RouterProvider router={router} />
     </Suspense>
   </React.StrictMode>

@@ -1,12 +1,15 @@
 import { styled } from "styled-components"
+import Loader from "../../Loader/Loader"
 
 interface IAuthButton {
-    text:string
+    text:string,
+    onProcess:boolean
 }
-const AuthButton = ({text}:IAuthButton) => {
-  return (
-    <Input type="submit" value={text}/>
-  )
+const AuthButton = ({text, onProcess}:IAuthButton) => {
+  
+  return onProcess ? <Loader/> : <Input type="submit" value={text}/>
+
+  
 }
 
 export default AuthButton
