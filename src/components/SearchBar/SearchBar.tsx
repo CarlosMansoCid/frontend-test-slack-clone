@@ -3,7 +3,7 @@ import {AiOutlineSearch} from 'react-icons/ai'
 
 const SearchBar = () => {
   return (
-    <SearchContainer>
+    <SearchContainer data-testid='searchbar'>
         <Input type="search" id="site-search" name="q" placeholder="Buscar" />
         <Button><AiOutlineSearch/></Button>
     </SearchContainer>

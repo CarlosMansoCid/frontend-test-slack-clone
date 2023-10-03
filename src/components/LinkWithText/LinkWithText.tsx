@@ -7,7 +7,7 @@ interface ILinkWithText {
 }
 const LinkWithText = ({text, to, linkText}:ILinkWithText) => {
   return (
-    <LinkContainer>
+    <LinkContainer data-testid='link'>
         <P>{text} </P>
         <Link to={to} style={{margin:'0.2rem'}}>{linkText}</Link>
     </LinkContainer>

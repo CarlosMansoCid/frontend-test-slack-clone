@@ -13,7 +13,7 @@ const Avatar = ({username, isOnline, id, backgroundColor}:IAvatar) => {
   const color = useGenerateHexadecimalColor()
 
   return (
-    <AvatarSquare id={id} style={{backgroundColor:backgroundColor}}>
+    <AvatarSquare id={id} style={{backgroundColor:backgroundColor}} data-testid='avatar'>
         {username.slice(0,2).toUpperCase()}
         {isOnline && <OnLineIndicator id={id}/>}
     </AvatarSquare>
