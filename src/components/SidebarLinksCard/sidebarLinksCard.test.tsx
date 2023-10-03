@@ -6,7 +6,7 @@ beforeEach(()=>{
     render(<SidebarLinksCard link={sidebarLinksMock[0]}/>)
 })
 
-describe('<SpaceHeader/>',()=>{
+describe('<SidebarLinksCard />',()=>{
     it('Must render a sidebar link',()=>{
         const sidebarLinkComponent = screen.getByTestId('sidebarLink')
         expect(sidebarLinkComponent).toBeInTheDocument()
