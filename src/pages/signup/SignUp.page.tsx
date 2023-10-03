@@ -5,10 +5,15 @@ import AuthFormsContainer from "../../components/AuthFormsContainer/AuthFormsCon
 import AuthSeparator from "../../modules/AuthHeader/components/AuthSeparator"
 import SignUpForm from "../../modules/SignUpForm/SignUpForm"
 import { styled } from "styled-components"
+import { Helmet } from "react-helmet"
 
 const SignUpPage = () => {
   return (
     <LoginLayout>
+        <Helmet>
+          <title>Unete a Slack</title>
+          <meta name="description" content="Crea una cuenta y comienza a organizar tu trabajo"/>
+        </Helmet>
         <AuthHeader title='Conectate a Slack' 
                     subtitle={`Te sugerimos que uses la dirección de correo electrónico que usas en el trabajo.`}/>
         <AuthFormsContainer>

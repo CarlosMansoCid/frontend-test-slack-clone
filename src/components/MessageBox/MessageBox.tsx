@@ -11,11 +11,12 @@ const MessageBox = ({message,remitent}:IMessageBox) => {
 
   
   return (
-    <MessageBoxContainer>
+    <MessageBoxContainer data-testid='messagebox'>
         <Avatar username={remitent.username} 
                 isOnline={remitent.isOnline} 
                 id={remitent._id.toString()}
-                backgroundColor={remitent.backgroundColor}/>
+                backgroundColor={remitent.backgroundColor}
+                />
         <TextMessageBox>
             <Header>
                 <strong>{remitent.username}</strong>

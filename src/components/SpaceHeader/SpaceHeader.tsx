@@ -5,6 +5,7 @@ import {IoRocketOutline} from 'react-icons/io5'
 interface ISpaceHeader {
     spacename: string
 }
+
 const SpaceHeader = ({spacename}:ISpaceHeader) => {
   return (
     <SpaceHeaderContainer>

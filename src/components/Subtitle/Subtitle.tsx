@@ -1,4 +1,4 @@
-import { SubtitleComponent } from "./subtitle.style";
+import { styled } from "styled-components";
 
 interface ISubtitle{
     subtitle: string
@@ -11,3 +11,9 @@ const Subtitle = ({subtitle}:ISubtitle) => {
 }
 
 export default Subtitle
+
+export const SubtitleComponent = styled.p`
+    color: var(--color-font-grey-ligth);
+    margin: 0;
+
+`

@@ -6,8 +6,8 @@ interface ISidebarLinkCard {
 }
 const SidebarLinksCard = ({link}:ISidebarLinkCard) => {
   return (
-    <LinkContainer>
-        <link.icon/>
+    <LinkContainer data-testid='sidebarLink'>
+        <link.icon data-testid="icon"/>
         <P>{link.title}</P>
     </LinkContainer>
   )
